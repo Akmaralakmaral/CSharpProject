@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CSharpProject.Controllers
 {
-    public class Employee : Controller
+    public class EmployeeController : Controller
     {
         private readonly IProjectServices _projectServices;
 
-        public Employee(IProjectServices projectServices)
+        public EmployeeController(IProjectServices projectServices)
         {
             _projectServices = projectServices;
         }
