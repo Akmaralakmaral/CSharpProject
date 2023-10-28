@@ -1,7 +1,7 @@
 ﻿
 namespace BLL.Services.Interfaces
 {
-    internal class IProjectServices
+    public interface IProjectServices
     {
     }
 }
