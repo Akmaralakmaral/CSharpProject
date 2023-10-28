@@ -1,6 +1,7 @@
 ﻿
 using DAL.Context;
 using DAL.Repositories.Interfaces;
+using Domain.Models.Entities;
 using System.Collections.Generic;
 namespace DAL.Repositories
 {
@@ -13,9 +14,68 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public void GetAll()
+        public void AddProject(Project project)
         {
-            var projects = _context.Projects.ToList();
+            _context.Projects.Add(project);
+            _context.SaveChanges();
+        }
+
+        public Project GetProjectById(int projectId)
+        {
+            return _context.Projects.FirstOrDefault(p => p.ProjectId == projectId);
+        }
+
+        public Employee GetEmployeeById(int employeeId)
+        {
+            return _context.Employees.FirstOrDefault(p => p.EmployeeId == employeeId);
+        }
+
+        public void UpdateProject(Project project)
+        {
+            _context.Projects.Update(project);
+            _context.SaveChanges();
+        }
+
+        public void DeleteProject(int projectId)
+        {
+            var project = GetProjectById(projectId);
+            if (project != null)
+            {
+                _context.Projects.Remove(project);
+                _context.SaveChanges();
+            }
+        }
+
+
+
+        public void AddEmployeeToProject(int employeeId, int projectId)
+        {
+            var project = GetProjectById(projectId);
+            var employee = GetEmployeeById(employeeId);
+
+            if (project != null && employee != null)
+            {
+                project.Employees.Add(employee);
+                _context.SaveChanges();
+            }
+        }
+
+        public void RemoveEmployeeFromProject(int employeeId, int projectId)
+        {
+            var project = GetProjectById(projectId);
+            var employee = GetEmployeeById(employeeId);
+
+            if (project != null && employee != null)
+            {
+                project.Employees.Remove(employee);
+                _context.SaveChanges();
+            }
+        }
+
+
+        public List<Project> GetProjectsByPriority(int priority)
+        {
+            return _context.Projects.Where(p => p.Priority == priority).ToList();
         }
 
     }
