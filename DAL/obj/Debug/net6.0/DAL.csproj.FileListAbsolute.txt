@@ -1,0 +1,17 @@
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\Domain.dll
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\bin\Debug\net6.0\Domain.pdb
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\DAL\obj\Debug\net6.0\ref\DAL.dll

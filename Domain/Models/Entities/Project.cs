@@ -1,25 +1,25 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Domain.Models.Entities
 {
     public class Project
     {
-        public Guid Id { get; set; }  // Уникальный идентификатор проекта
-        public string ProjectName { get; set; }  // Название проекта
-        public DateTime StartDate { get; set; }  // Дата начала проекта
-        public DateTime EndDate { get; set; }  // Дата окончания проекта
+        public int ProjectId { get; set; }
+        public string ProjectName { get; set; }
+        public int CustomerCompanyId { get; set; }
+        public int ExecutorCompanyId { get; set; }
+        public int ProjectManagerId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public int Priority { get; set; }
 
-        public Guid CustomerCompanyId { get; set; }  // Идентификатор компании-заказчика
-        public Company CustomerCompany { get; set; }  // Ссылка на компанию-заказчика
+        public Company CustomerCompany { get; set; }
+        public Company ExecutorCompany { get; set; }
+        public Employee ProjectManager { get; set; }
+        public List<Employee> Employees { get; set; }
 
-        public Guid ExecutorCompanyId { get; set; }  // Идентификатор компании-исполнителя
-        public Company ExecutorCompany { get; set; }  // Ссылка на компанию-исполнителя
-
-        public Guid ProjectManagerId { get; set; }  // Идентификатор руководителя проекта
-        public Employee ProjectManager { get; set; }  // Ссылка на сущность сотрудника, являющегося руководителем проекта
-
-        public List<Employee> Employees { get; set; }  // Список сотрудников, работающих над проектом
-        public List<Task> Tasks { get; set; }  // Список задач, связанных с проектом
-
-
+        public ICollection<Task> Tasks { get; set; }
     }
 }
