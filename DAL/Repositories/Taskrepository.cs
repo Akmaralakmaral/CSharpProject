@@ -1,7 +1,9 @@
 ﻿
+using DAL.Repositories.Interfaces;
+
 namespace DAL.Repositories
 {
-    public class Taskrepository
+    public class Taskrepository : ITsakRepository
     {
 
     }

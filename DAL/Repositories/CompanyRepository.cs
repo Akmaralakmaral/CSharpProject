@@ -1,7 +1,9 @@
 ﻿
+using DAL.Repositories.Interfaces;
+
 namespace DAL.Repositories
 {
-    public class CompanyRepository
+    public class CompanyRepository : ICompanyRepository
     {
 
     }

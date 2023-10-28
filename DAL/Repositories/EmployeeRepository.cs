@@ -1,7 +1,9 @@
 ﻿
+using DAL.Repositories.Interfaces;
+
 namespace DAL.Repositories
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
 
 
