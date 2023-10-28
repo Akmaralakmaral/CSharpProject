@@ -1,12 +1,12 @@
 ﻿
 using DAL.Context;
 using DAL.Repositories.Interfaces;
-
+using System.Collections.Generic;
 namespace DAL.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {
-        AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public ProjectRepository(AppDbContext context)
         {

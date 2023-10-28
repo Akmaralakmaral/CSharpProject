@@ -1,12 +1,15 @@
 using BLL.Configurations;
+using DAL.Configurations;
 using DAL.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddServices();
+builder.Services.AddRepositories();
+builder.Services.AddDbContext<AppDbContext>();
+
 
 
 var app = builder.Build();
