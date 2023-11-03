@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bPdcaZQe/GA2hsU/E0pE/LwSham1neBzol+VPtWzPnxhkp5bU/XDvIfRb/J9XqLEQkORgTpGEna9LcR2s5QSBg==",
+  "dgSpecHash": "qJ/lEVjCWmekXD6FaozkGvWBHIe/FZZjnLre9r+JAiNRAxyRDsNe5b5dJzujFBI1WpPZ+G3ekF6dWWE8SDmrRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Акмарал\\Desktop\\C#\\C# ProjectOfProject\\CSharpProject\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\Акмарал\\Desktop\\3 КУРС ОСЕННИЙ СЕМЕСТР\\ДП_С#\\C#\\C# ProjectOfProject\\CSharpProject\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Акмарал\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Акмарал\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

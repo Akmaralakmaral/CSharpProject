@@ -6,12 +6,13 @@ namespace CSharpProject.Controllers
     
     public class CompanyController : Controller
     {
-        private readonly IProjectServices _projectServices;
+        private readonly ICompanyServices _companyRepository;
 
-        public CompanyController(IProjectServices projectServices)
+        public CompanyController(ICompanyServices companyRepository)
         {
-            _projectServices = projectServices;
+            _companyRepository = companyRepository;
         }
+
 
         public IActionResult Index()
         {

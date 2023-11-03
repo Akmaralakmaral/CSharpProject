@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/VBCL2O6HhHjW1X0Z6yw6IxIwdCFWC7jyRRonVy+kRnDa6zz9HlNb9AHq5cBjyIBDBVbc3M8Q7ShrBxgJM6+hQ==",
+  "dgSpecHash": "YdbR6NPJqEwnw+z5OTwpEzmUwXFD+c/3thJx48CRe3DYUHYkMFW8pBONcvRRoy6iDx3raHcyfvOh2bn7AMxXzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Акмарал\\Desktop\\C#\\C# ProjectOfProject\\CSharpProject\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\Акмарал\\Desktop\\3 КУРС ОСЕННИЙ СЕМЕСТР\\ДП_С#\\C#\\C# ProjectOfProject\\CSharpProject\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Акмарал\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Акмарал\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

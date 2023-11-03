@@ -25,6 +25,7 @@ namespace BLL.Services.Interfaces
 
         // Метод для получения списка проектов по их приоритету
         List<Project> GetProjectsByPriority(int priority);
-       
+
+        List<Project> GetAllProjects();
     }
 }

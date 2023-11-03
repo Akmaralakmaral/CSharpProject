@@ -25,5 +25,8 @@ namespace DAL.Repositories.Interfaces
 
         // Получение списка проектов с указанным приоритетом
         List<Project> GetProjectsByPriority(int priority);
+
+        // Новый метод для получения всех проектов
+        List<Project> GetAllProjects();
     }
 }

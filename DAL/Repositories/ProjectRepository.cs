@@ -78,5 +78,10 @@ namespace DAL.Repositories
             return _context.Projects.Where(p => p.Priority == priority).ToList();
         }
 
+        public List<Project> GetAllProjects()
+        {
+            return _context.Projects.ToList();
+        }
+
     }
 }

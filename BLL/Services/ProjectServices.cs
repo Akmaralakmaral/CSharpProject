@@ -49,5 +49,9 @@ namespace BLL.Services
             return _projectRepository.GetProjectsByPriority(priority);
         }
 
+        public List<Project> GetAllProjects()
+        {
+            return _projectRepository.GetAllProjects();
+        }
     }
 }
