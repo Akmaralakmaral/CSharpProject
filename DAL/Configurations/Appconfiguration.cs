@@ -12,7 +12,7 @@ namespace DAL.Configurations
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IProjectRepository, ProjectRepository>();
-            services.AddTransient<ITsakRepository, Taskrepository>();
+            services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddTransient<IProjectEmployeeRepository, ProjectEmployeeRepository>();
         }
 

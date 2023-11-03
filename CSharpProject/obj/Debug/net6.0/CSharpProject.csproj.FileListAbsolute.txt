@@ -271,6 +271,14 @@ C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\CSharpProje
 C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.pdb
 C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.genruntimeconfig.cache
 C:\Users\Акмарал\Desktop\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\ref\CSharpProject.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.csproj.AssemblyReference.cache
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.AssemblyInfoInputs.cache
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.AssemblyInfo.cs
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.csproj.CoreCompileInputs.cache
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.RazorAssemblyInfo.cache
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.RazorAssemblyInfo.cs
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\appsettings.json
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\CSharpProject.staticwebassets.runtime.json
@@ -279,6 +287,8 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\CSharpProject.runtimeconfig.json
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\CSharpProject.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\CSharpProject.pdb
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Humanizer.dll
@@ -520,14 +530,6 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\BLL.pdb
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\DAL.pdb
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Domain.pdb
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.csproj.AssemblyReference.cache
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.AssemblyInfoInputs.cache
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.AssemblyInfo.cs
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.csproj.CoreCompileInputs.cache
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.RazorAssemblyInfo.cache
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.RazorAssemblyInfo.cs
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\staticwebassets\msbuild.CSharpProject.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\staticwebassets\msbuild.build.CSharpProject.props
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.CSharpProject.props
@@ -544,4 +546,3 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.pdb
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.genruntimeconfig.cache
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\ref\CSharpProject.dll
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\AutoMapper.dll

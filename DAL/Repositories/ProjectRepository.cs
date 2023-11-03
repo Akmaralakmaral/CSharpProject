@@ -2,7 +2,6 @@
 using DAL.Context;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
-using System.Collections.Generic;
 namespace DAL.Repositories
 {
     public class ProjectRepository : IProjectRepository
