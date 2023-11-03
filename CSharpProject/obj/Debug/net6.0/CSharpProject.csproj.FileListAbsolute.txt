@@ -544,3 +544,4 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.pdb
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.genruntimeconfig.cache
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\ref\CSharpProject.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\AutoMapper.dll

@@ -1,4 +1,6 @@
 ﻿
+using AutoMapper;
+using BLL.DTO;
 using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
@@ -8,25 +10,30 @@ namespace BLL.Services
     public class ProjectServices : IProjectServices
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IMapper _mapper;
 
-        public ProjectServices(IProjectRepository projectRepository)
+        public ProjectServices(IProjectRepository projectRepository, IMapper mapper)
         {
             _projectRepository = projectRepository;
+            _mapper = mapper;
         }
 
-        public void AddProject(Project project)
+        public void AddProject(ProjectDTO project)
         {
-            _projectRepository.AddProject(project);
+            var projectEntity = _mapper.Map<Project>(project);
+            _projectRepository.AddProject(projectEntity);
         }
 
-        public Project GetProjectById(int projectId)
+        public ProjectDTO GetProjectById(int projectId)
         {
-            return _projectRepository.GetProjectById(projectId);
+            var project = _projectRepository.GetProjectById(projectId);
+            return _mapper.Map<ProjectDTO>(project);
         }
 
-        public void UpdateProject(Project project)
+        public void UpdateProject(ProjectDTO project)
         {
-            _projectRepository.UpdateProject(project);
+            var projectEntity = _mapper.Map<Project>(project);
+            _projectRepository.UpdateProject(projectEntity);
         }
 
         public void DeleteProject(int projectId)
@@ -34,24 +41,26 @@ namespace BLL.Services
             _projectRepository.DeleteProject(projectId);
         }
 
-        public void AddEmployeeToProject(int projectId, int employeeId)
+        public void AddEmployeeToProject(int employeeId, int projectId)
         {
-            _projectRepository.AddEmployeeToProject(projectId, employeeId);
+            _projectRepository.AddEmployeeToProject(employeeId, projectId);
         }
 
-        public void RemoveEmployeeFromProject(int projectId, int employeeId)
+        public void RemoveEmployeeFromProject(int employeeId, int projectId)
         {
-            _projectRepository.RemoveEmployeeFromProject(projectId, employeeId);
+            _projectRepository.RemoveEmployeeFromProject(employeeId, projectId);
         }
 
-        public List<Project> GetProjectsByPriority(int priority)
+        public List<ProjectDTO> GetProjectsByPriority(int priority)
         {
-            return _projectRepository.GetProjectsByPriority(priority);
+            var projects = _projectRepository.GetProjectsByPriority(priority);
+            return _mapper.Map<List<ProjectDTO>>(projects);
         }
 
-        public List<Project> GetAllProjects()
+        public List<ProjectDTO> GetAllProjects()
         {
-            return _projectRepository.GetAllProjects();
+            var projects = _projectRepository.GetAllProjects();
+            return _mapper.Map<List<ProjectDTO>>(projects);
         }
     }
 }

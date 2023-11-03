@@ -1,4 +1,5 @@
 ﻿
+using BLL.DTO;
 using Domain.Models.Entities;
 
 namespace BLL.Services.Interfaces
@@ -6,26 +7,26 @@ namespace BLL.Services.Interfaces
     public interface IProjectServices
     {
         // Метод для добавления нового проекта
-        void AddProject(Project project);
+        void AddProject(ProjectDTO project);
 
         // Метод для получения проекта по его ID
-        Project GetProjectById(int projectId);
+        ProjectDTO GetProjectById(int projectId);
 
         // Метод для обновления данных проекта
-        void UpdateProject(Project project);
+        void UpdateProject(ProjectDTO project);
 
         // Метод для удаления проекта по его ID
         void DeleteProject(int projectId);
 
         // Метод для добавления сотрудника к проекту
-        void AddEmployeeToProject(int projectId, int employeeId);
+        void AddEmployeeToProject(int employeeId, int projectId);
 
         // Метод для удаления сотрудника с проекта
-        void RemoveEmployeeFromProject(int projectId, int employeeId);
+        void RemoveEmployeeFromProject(int employeeId, int projectId);
 
         // Метод для получения списка проектов по их приоритету
-        List<Project> GetProjectsByPriority(int priority);
+        List<ProjectDTO> GetProjectsByPriority(int priority);
 
-        List<Project> GetAllProjects();
+        List<ProjectDTO> GetAllProjects();
     }
 }
