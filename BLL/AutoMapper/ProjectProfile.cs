@@ -1,6 +1,6 @@
 ﻿
 using AutoMapper;
-using BLL.DTO;
+using Domain.Models.DTO;
 using Domain.Models.Entities;
 
 namespace BLL.AutoMapper

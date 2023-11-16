@@ -108,5 +108,12 @@ namespace DAL.Repositories
         {
             return _context.Companies.OrderBy(c => c.CompanyName).ToList();
         }
+
+        // Получение всех компаний
+        public IEnumerable<Company> GetAllCompanies()
+        {
+            return _context.Companies.ToList();
+        }
+
     }
 }

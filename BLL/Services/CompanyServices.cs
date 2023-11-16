@@ -1,5 +1,7 @@
 ﻿
 
+using AutoMapper;
+using Domain.Models.DTO;
 using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
@@ -9,70 +11,53 @@ namespace BLL.Services
     public class CompanyServices : ICompanyServices
     {
         private readonly ICompanyRepository _companyRepository;
+        private readonly IMapper _mapper;
 
-        public CompanyServices(ICompanyRepository companyRepository)
+        public CompanyServices(ICompanyRepository companyRepository, IMapper mapper)
         {
             _companyRepository = companyRepository;
+            _mapper = mapper;
         }
 
-        // Создание компании
-        public void CreateCompany(Company company)
+        public CompanyDTO GetCompanyById(int companyId)
         {
+            Company company = _companyRepository.GetCompanyById(companyId);
+            return _mapper.Map<CompanyDTO>(company);
+        }
+
+        public void CreateCompany(CompanyDTO companyDTO)
+        {
+            Company company = _mapper.Map<Company>(companyDTO);
             _companyRepository.CreateCompany(company);
         }
 
-        // Получение компании по ID
-        public Company GetCompanyById(int companyId)
+        public void UpdateCompany(CompanyDTO companyDTO)
         {
-            return _companyRepository.GetCompanyById(companyId);
-        }
-
-        // Редактирование компании
-        public void UpdateCompany(Company company)
-        {
+            Company company = _mapper.Map<Company>(companyDTO);
             _companyRepository.UpdateCompany(company);
         }
 
-        // Удаление компании
         public void DeleteCompany(int companyId)
         {
             _companyRepository.DeleteCompany(companyId);
         }
 
-        // Добавление проекта в компанию
-        public void AddProjectToCompany(int companyId, Project project)
+        public List<CompanyDTO> GetCompaniesByName(string companyName)
         {
-            _companyRepository.AddProjectToCompany(companyId, project);
+            List<Company> companies = _companyRepository.GetCompaniesByName(companyName);
+            return _mapper.Map<List<CompanyDTO>>(companies);
         }
 
-        // Удаление проекта из компании
-        public void RemoveProjectFromCompany(int companyId, int projectId)
+        public List<CompanyDTO> GetCompaniesSortedByName()
         {
-            _companyRepository.RemoveProjectFromCompany(companyId, projectId);
+            List<Company> companies = _companyRepository.GetCompaniesSortedByName();
+            return _mapper.Map<List<CompanyDTO>>(companies);
         }
 
-        // Добавление сотрудника в компанию
-        public void AddEmployeeToCompany(int companyId, Employee employee)
+        public IEnumerable<CompanyDTO> GetAllCompanies()
         {
-            _companyRepository.AddEmployeeToCompany(companyId, employee);
-        }
-
-        // Удаление сотрудника из компании
-        public void RemoveEmployeeFromCompany(int companyId, int employeeId)
-        {
-            _companyRepository.RemoveEmployeeFromCompany(companyId, employeeId);
-        }
-
-        // Фильтрация компаний по названию
-        public List<Company> GetCompaniesByName(string companyName)
-        {
-            return _companyRepository.GetCompaniesByName(companyName);
-        }
-
-        // Сортировка компаний по названию (по возрастанию)
-        public List<Company> GetCompaniesSortedByName()
-        {
-            return _companyRepository.GetCompaniesSortedByName();
+            IEnumerable<Company> companies = _companyRepository.GetAllCompanies();
+            return _mapper.Map<IEnumerable<CompanyDTO>>(companies);
         }
     }
 }

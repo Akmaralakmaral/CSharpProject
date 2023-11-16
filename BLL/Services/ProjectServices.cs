@@ -1,6 +1,6 @@
 ﻿
 using AutoMapper;
-using BLL.DTO;
+using Domain.Models.DTO;
 using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
@@ -62,5 +62,14 @@ namespace BLL.Services
             var projects = _projectRepository.GetAllProjects();
             return _mapper.Map<List<ProjectDTO>>(projects);
         }
+
+        public List<ProjectDTO> SortProjectsByName()
+        {
+            var projects = _projectRepository.GetAllProjects();
+            var sortedProjects = projects.OrderBy(p => p.ProjectName).ToList();
+            return _mapper.Map<List<ProjectDTO>>(sortedProjects);
+        }
+
+
     }
 }

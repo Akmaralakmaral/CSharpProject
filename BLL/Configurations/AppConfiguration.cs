@@ -14,13 +14,16 @@ namespace BLL.Configurations
             services.AddTransient<IProjectServices, ProjectServices>();
             services.AddAutoMapper(typeof(ProjectProfile));
 
-            services.AddTransient<IProjectEmployeeServices, ProjectEmployeeServices>();
-
-
             services.AddTransient<ICompanyServices, CompanyServices>();
+            services.AddAutoMapper(typeof(CompanyProfile));
+
             services.AddTransient<IEmployeeServices, EmployeeServices>();
+            services.AddAutoMapper(typeof(EmployeeProfile));
+
             services.AddTransient<ITaskServices, TaskServices>();
-            
+            services.AddAutoMapper(typeof(TaskProfile));
+
+            services.AddTransient<IProjectEmployeeServices, ProjectEmployeeServices>();
         }
     }
 }

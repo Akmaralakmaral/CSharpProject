@@ -1,6 +1,5 @@
 ﻿
-using BLL.DTO;
-using Domain.Models.Entities;
+using Domain.Models.DTO;
 
 namespace BLL.Services.Interfaces
 {
@@ -28,5 +27,8 @@ namespace BLL.Services.Interfaces
         List<ProjectDTO> GetProjectsByPriority(int priority);
 
         List<ProjectDTO> GetAllProjects();
+
+        // Метод для сортировки проектов по названию
+        List<ProjectDTO> SortProjectsByName();
     }
 }

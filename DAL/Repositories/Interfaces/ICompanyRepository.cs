@@ -34,5 +34,10 @@ namespace DAL.Repositories.Interfaces
 
         // Сортировка компаний по названию (по возрастанию)
         List<Company> GetCompaniesSortedByName();
+
+        // Получение всех компаний
+        IEnumerable<Company> GetAllCompanies();
+
+        
     }
 }
