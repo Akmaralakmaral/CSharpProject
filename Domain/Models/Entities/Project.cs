@@ -15,7 +15,8 @@ namespace Domain.Models.Entities
         public Company CustomerCompany { get; set; }
         public Company ExecutorCompany { get; set; }
         public Employee ProjectManager { get; set; }
-        public List<Employee> Employees { get; set; }
+        
+        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
         public ICollection<Task> Tasks { get; set; }
     }

@@ -15,13 +15,26 @@ namespace CSharpProject.Controllers
         private readonly ICompanyServices _companyServices;
         private readonly IMapper _mapper;
 
-
         public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices,  IMapper mapper, ICompanyServices companyServices)
         {
             _projectServices = projectServices;
             _employeeServices = employeeServices;
             _mapper = mapper;
             _companyServices = companyServices;
+        }
+
+        [HttpPost]
+        public IActionResult AddEmployeeToProject(int projectId, int employeeId)
+        {
+            _projectServices.AddEmployeeToProject(employeeId, projectId);
+            return RedirectToAction(nameof(Details), new { id = projectId });
+        }
+
+        [HttpPost]
+        public IActionResult RemoveEmployeeFromProject(int projectId, int employeeId)
+        {
+            _projectServices.RemoveEmployeeFromProject(employeeId, projectId);
+            return RedirectToAction(nameof(Details), new { id = projectId });
         }
 
         // Действие для отображения списка проектов
@@ -54,13 +67,19 @@ namespace CSharpProject.Controllers
         // Действие для отображения деталей проекта
         public IActionResult Details(int id)
         {
-            // Получаем проект по идентификатору из сервиса
             var project = _projectServices.GetProjectById(id);
 
-            // Маппим проект в ViewModel
             var projectViewModel = _mapper.Map<ProjectViewModel>(project);
 
-            // Возвращаем представление с деталями проекта
+            // Получаем список сотрудников и компаний
+            var employees = _employeeServices.GetAllEmployees();
+            var employeeList = employees
+                .Select(e => new SelectListItem { Value = e.EmployeeId.ToString(), Text = $"{e.FirstName} {e.LastName}" })
+                .ToList();
+
+            // Присваиваем список сотрудников модели представления
+            projectViewModel.EmployeeList = employeeList;
+
             return View(projectViewModel);
         }
 
