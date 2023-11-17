@@ -107,7 +107,6 @@ namespace CSharpProject.Controllers
             // Перенаправляем на список сотрудников
             return RedirectToAction(nameof(Index));
         }
-
         public IActionResult Delete(int id)
         {
             // Получаем информацию о сотруднике по идентификатору из сервиса
@@ -123,10 +122,10 @@ namespace CSharpProject.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            // Вызываем сервис для удаления сотрудника
+            // Ваш код для удаления сотрудника
             _employeeServices.DeleteEmployee(id);
 
-            // Перенаправляем на список сотрудников
+            // Перенаправление на Index
             return RedirectToAction(nameof(Index));
         }
     }

@@ -20,8 +20,10 @@ namespace CSharpProject
                 // Здесь вы можете добавить различные провайдеры логирования, например, консоль
                 builder.AddConsole();
             });
-        }
 
+            // Добавление конфигурации маршрутизации
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+        }
 
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -32,6 +34,14 @@ namespace CSharpProject
             {
                 endpoints.MapHealthChecks("/health");
                 // ... другие endpoint'ы ...
+            });
+
+            // Конфигурация маршрутизации
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
 

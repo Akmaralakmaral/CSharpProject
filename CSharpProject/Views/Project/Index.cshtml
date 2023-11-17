@@ -9,27 +9,35 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model[0].ProjectName)
-            </th>
-            <!-- Добавьте другие заголовки столбцов по мере необходимости -->
-            <th></th>
+            <th>Project Name</th>
+            <th>Customer Company</th>
+            <th>Executor Company</th>
+            <th>Project Manager</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Priority</th>
+            <th>Employees</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var project in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProjectName)
-                </td>
-                <!-- Добавьте другие столбцы по мере необходимости -->
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>@project.ProjectName</td>
+                    <td>@project.CustomerCompanyName</td>
+                    <td>@project.ExecutorCompanyName</td>
+                    <td>@project.ProjectManagerName</td>
+                    <td>@project.StartDate.ToShortDateString()</td>
+                    <td>@project.EndDate.ToShortDateString()</td>
+                    <td>@project.Priority</td>
+                    <td>@(project.EmployeeNames != null ? string.Join(", ", project.EmployeeNames) : "No data")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@project.ProjectId">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@project.ProjectId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@project.ProjectId">Delete</a>
+                    </td>
+                </tr>
         }
     </tbody>
 </table>

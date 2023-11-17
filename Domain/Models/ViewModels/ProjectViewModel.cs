@@ -1,4 +1,7 @@
-﻿namespace Domain.Models.ViewModels
+﻿
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Domain.Models.ViewModels
 {
     public class ProjectViewModel
     {
@@ -12,5 +15,9 @@
         public int Priority { get; set; }
         public List<string> EmployeeNames { get; set; }
         public List<int> TaskIds { get; set; }
+
+        // Добавленные свойства
+        public List<SelectListItem> CompanyList { get; set; }
+        public List<SelectListItem> EmployeeList { get; set; }
     }
 }

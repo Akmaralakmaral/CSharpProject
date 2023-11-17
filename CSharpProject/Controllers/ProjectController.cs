@@ -4,6 +4,7 @@ using BLL.Services.Interfaces;
 using Domain.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using BLL.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CSharpProject.Controllers
 {
@@ -11,14 +12,16 @@ namespace CSharpProject.Controllers
     {
         private readonly IProjectServices _projectServices;
         private readonly IEmployeeServices _employeeServices;
+        private readonly ICompanyServices _companyServices;
         private readonly IMapper _mapper;
 
 
-        public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices, IMapper mapper)
+        public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices,  IMapper mapper, ICompanyServices companyServices)
         {
             _projectServices = projectServices;
             _employeeServices = employeeServices;
             _mapper = mapper;
+            _companyServices = companyServices;
         }
 
         // Действие для отображения списка проектов
@@ -50,8 +53,16 @@ namespace CSharpProject.Controllers
         // Действие для отображения формы создания проекта
         public IActionResult Create()
         {
-            // Возвращаем представление для создания проекта
-            return View();
+            var companies = _companyServices.GetAllCompanies();
+            var employees = _employeeServices.GetAllEmployees();
+
+            var projectViewModel = new ProjectViewModel
+            {
+                CompanyList = companies.Select(c => new SelectListItem { Value = c.CompanyName, Text = c.CompanyName }).ToList(),
+                EmployeeList = employees.Select(e => new SelectListItem { Value = e.EmployeeId.ToString(), Text = $"{e.FirstName} {e.LastName}" }).ToList()
+            };
+
+            return View(projectViewModel);
         }
 
         // Действие для обработки создания проекта
