@@ -1,4 +1,5 @@
 using BLL.Configurations;
+using CSharpProject;
 using DAL.Configurations;
 using DAL.Context;
 
@@ -9,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddDbContext<AppDbContext>();
-
+builder.Services.ConfigureServices();
 
 
 var app = builder.Build();

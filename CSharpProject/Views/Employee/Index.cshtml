@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Domain.Models.ViewModels.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<h1>Employee List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>EmployeeId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>MiddleName</th>
+            <th>Email</th>
+            <th>Projects</th>
+            <th>AuthoredTasks</th>
+            <th>AssignedTasks</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+                <tr>
+                    <td>@employee.EmployeeId</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.MiddleName</td>
+                    <td>@employee.Email</td>
+                    <td>
+                    @if (employee.Projects != null && employee.Projects.Any())
+                    {
+                        foreach (var project in employee.Projects)
+                        {
+                                        <p>@project.ProjectName</p>
+                        }
+                    }
+                    </td>
+                    <td>
+                    @if (employee.AuthoredTasks != null && employee.AuthoredTasks.Any())
+                    {
+                        foreach (var task in employee.AuthoredTasks)
+                        {
+                                        <p>@task.TaskName</p>
+                        }
+                    }
+                    </td>
+                    <td>
+                    @if (employee.AssignedTasks != null && employee.AssignedTasks.Any())
+                    {
+                        foreach (var task in employee.AssignedTasks)
+                        {
+                                        <p>@task.TaskName</p>
+                        }
+                    }
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

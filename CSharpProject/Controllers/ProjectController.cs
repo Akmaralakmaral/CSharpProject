@@ -3,6 +3,7 @@ using Domain.Models.DTO;
 using BLL.Services.Interfaces;
 using Domain.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using BLL.Services;
 
 namespace CSharpProject.Controllers
 {
@@ -12,6 +13,7 @@ namespace CSharpProject.Controllers
         private readonly IEmployeeServices _employeeServices;
         private readonly IMapper _mapper;
 
+
         public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices, IMapper mapper)
         {
             _projectServices = projectServices;
@@ -19,138 +21,235 @@ namespace CSharpProject.Controllers
             _mapper = mapper;
         }
 
+        // Действие для отображения списка проектов
         public IActionResult Index()
         {
-            // Метод для просмотра всех проектов
+            // Получаем все проекты из сервиса
             var projects = _projectServices.GetAllProjects();
+
+            // Маппим проекты в ViewModel
             var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
+
+            // Возвращаем представление с списком проектов
             return View(projectViewModels);
         }
 
+        // Действие для отображения деталей проекта
+        public IActionResult Details(int id)
+        {
+            // Получаем проект по идентификатору из сервиса
+            var project = _projectServices.GetProjectById(id);
+
+            // Маппим проект в ViewModel
+            var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+
+            // Возвращаем представление с деталями проекта
+            return View(projectViewModel);
+        }
+
+        // Действие для отображения формы создания проекта
         public IActionResult Create()
         {
-            // Метод для создания нового проекта
+            // Возвращаем представление для создания проекта
             return View();
         }
 
+        // Действие для обработки создания проекта
         [HttpPost]
         public IActionResult Create(ProjectViewModel projectViewModel)
         {
+            // Проверяем, прошла ли валидация модели
             if (ModelState.IsValid)
             {
+                // Маппим ViewModel в DTO
                 var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
+
+                // Вызываем сервис для добавления проекта
                 _projectServices.AddProject(projectDTO);
-                return RedirectToAction("Index");
+
+                // Перенаправляем на список проектов
+                return RedirectToAction(nameof(Index));
             }
 
+            // Если валидация не удалась, возвращаем представление с ошибками
             return View(projectViewModel);
         }
 
+        // Действие для отображения формы редактирования проекта
         public IActionResult Edit(int id)
         {
-            // Метод для редактирования проекта
+            // Получаем проект по идентификатору из сервиса
             var project = _projectServices.GetProjectById(id);
+
+            // Маппим проект в ViewModel
             var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+
+            // Возвращаем представление для редактирования проекта
             return View(projectViewModel);
         }
 
+        // Действие для обработки редактирования проекта
         [HttpPost]
-        public IActionResult Edit(ProjectViewModel projectViewModel)
+        public IActionResult Edit(int id, ProjectViewModel projectViewModel)
         {
-            if (ModelState.IsValid)
+            // Проверяем, прошла ли валидация модели и соответствует ли идентификатор
+            if (id != projectViewModel.ProjectId || !ModelState.IsValid)
             {
-                var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
-                _projectServices.UpdateProject(projectDTO);
-                return RedirectToAction("Index");
+                // Если условия не выполнились, возвращаем 404 Not Found
+                return NotFound();
             }
 
-            return View(projectViewModel);
+            // Маппим ViewModel в DTO
+            var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
+
+            // Вызываем сервис для обновления проекта
+            _projectServices.UpdateProject(projectDTO);
+
+            // Перенаправляем на список проектов
+            return RedirectToAction(nameof(Index));
         }
 
+        // Действие для отображения формы подтверждения удаления проекта
         public IActionResult Delete(int id)
         {
-            // Метод для удаления проекта
+            // Получаем проект по идентификатору из сервиса
             var project = _projectServices.GetProjectById(id);
+
+            // Маппим проект в ViewModel
             var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+
+            // Возвращаем представление для подтверждения удаления проекта
             return View(projectViewModel);
         }
 
+        // Действие для обработки подтверждения удаления проекта
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
+            // Вызываем сервис для удаления проекта
             _projectServices.DeleteProject(id);
-            return RedirectToAction("Index");
+
+            // Перенаправляем на список проектов
+            return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult AddEmployee(int projectId)
-        {
-            // Метод для добавления сотрудника к проекту
-            var employees = _employeeServices.GetAllEmployees();
-            var employeeViewModels = _mapper.Map<List<EmployeeViewModel>>(employees);
-            ViewBag.ProjectId = projectId;
-            return View(employeeViewModels);
-        }
-
-        [HttpPost]
-        public IActionResult AddEmployee(int projectId, List<int> employeeIds)
-        {
-            if (employeeIds != null && employeeIds.Any())
-            {
-                foreach (var employeeId in employeeIds)
-                {
-                    _projectServices.AddEmployeeToProject(employeeId, projectId);
-                }
-            }
-            return RedirectToAction("Index");
-        }
-
-        //public IActionResult RemoveEmployee(int projectId)
-        //{
-        //    // Метод для удаления сотрудника с проекта
-        //    var employees = _projectServices.GetEmployeesByProject(projectId);
-        //    var employeeViewModels = _mapper.Map<List<EmployeeViewModel>>(employees);
-        //    ViewBag.ProjectId = projectId;
-        //    return View(employeeViewModels);
-        //}
-
-        [HttpPost]
-        public IActionResult RemoveEmployee(int projectId, List<int> employeeIds)
-        {
-            if (employeeIds != null && employeeIds.Any())
-            {
-                foreach (var employeeId in employeeIds)
-                {
-                    _projectServices.RemoveEmployeeFromProject(employeeId, projectId);
-                }
-            }
-            return RedirectToAction("Index");
-        }
-
-        //public IActionResult FilterByStartDate(DateTime startDate)
-        //{
-        //    // Метод для фильтрации проектов по дате начала
-        //    var projects = _projectServices.FilterProjectsByStartDate(startDate);
-        //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
-        //    return View("Index", projectViewModels);
-        //}
-
-        //public IActionResult FilterByPriority(int priority)
-        //{
-        //    // Метод для фильтрации проектов по приоритету
-        //    var projects = _projectServices.FilterProjectsByPriority(priority);
-        //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
-        //    return View("Index", projectViewModels);
-        //}
-
-        public IActionResult SortByName()
-        {
-            // Метод для сортировки проектов по названию
-            var projects = _projectServices.SortProjectsByName();
-            var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
-            return View("Index", projectViewModels);
-        }
-
-
-
     }
+
+
+    //public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices, IMapper mapper)
+    //{
+    //    _projectServices = projectServices;
+    //    _employeeServices = employeeServices;
+    //    _mapper = mapper;
+    //}
+
+    //public IActionResult Index()
+    //{
+    //    // Метод для просмотра всех проектов
+    //    var projects = _projectServices.GetAllProjects();
+    //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
+    //    return View(projectViewModels);
+    //}
+
+    //public IActionResult Create()
+    //{
+    //    // Метод для создания нового проекта
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //public IActionResult Create(ProjectViewModel projectViewModel)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
+    //        _projectServices.AddProject(projectDTO);
+    //        return RedirectToAction("Index");
+    //    }
+
+    //    return View(projectViewModel);
+    //}
+
+    //public IActionResult Edit(int id)
+    //{
+    //    // Метод для редактирования проекта
+    //    var project = _projectServices.GetProjectById(id);
+    //    var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+    //    return View(projectViewModel);
+    //}
+
+    //[HttpPost]
+    //public IActionResult Edit(ProjectViewModel projectViewModel)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
+    //        _projectServices.UpdateProject(projectDTO);
+    //        return RedirectToAction("Index");
+    //    }
+
+    //    return View(projectViewModel);
+    //}
+
+    //public IActionResult Delete(int id)
+    //{
+    //    // Метод для удаления проекта
+    //    var project = _projectServices.GetProjectById(id);
+    //    var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+    //    return View(projectViewModel);
+    //}
+
+    //[HttpPost, ActionName("Delete")]
+    //public IActionResult DeleteConfirmed(int id)
+    //{
+    //    _projectServices.DeleteProject(id);
+    //    return RedirectToAction("Index");
+    //}
+
+    //public IActionResult AddEmployee(int projectId)
+    //{
+    //    // Метод для добавления сотрудника к проекту
+    //    var employees = _employeeServices.GetAllEmployees();
+    //    var employeeViewModels = _mapper.Map<List<EmployeeViewModel>>(employees);
+    //    ViewBag.ProjectId = projectId;
+    //    return View(employeeViewModels);
+    //}
+
+    //[HttpPost]
+    //public IActionResult AddEmployee(int projectId, List<int> employeeIds)
+    //{
+    //    if (employeeIds != null && employeeIds.Any())
+    //    {
+    //        foreach (var employeeId in employeeIds)
+    //        {
+    //            _projectServices.AddEmployeeToProject(employeeId, projectId);
+    //        }
+    //    }
+    //    return RedirectToAction("Index");
+    //}
+
+
+    //[HttpPost]
+    //public IActionResult RemoveEmployee(int projectId, List<int> employeeIds)
+    //{
+    //    if (employeeIds != null && employeeIds.Any())
+    //    {
+    //        foreach (var employeeId in employeeIds)
+    //        {
+    //            _projectServices.RemoveEmployeeFromProject(employeeId, projectId);
+    //        }
+    //    }
+    //    return RedirectToAction("Index");
+    //}
+
+    //public IActionResult SortByName()
+    //{
+    //    // Метод для сортировки проектов по названию
+    //    var projects = _projectServices.SortProjectsByName();
+    //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
+    //    return View("Index", projectViewModels);
+    //}
+
+
+
 }
+

@@ -1,4 +1,4 @@
-﻿@model Domain.Models.Entities.Project
+﻿@*@model Domain.Models.Entities.Project
 
 @{
     ViewData["Title"] = "Create Project";
@@ -38,4 +38,66 @@
     
 
    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+</form>*@
+
+
+@model Domain.Models.ViewModels.ProjectViewModel
+
+<h2>Create Project</h2>
+
+@using (Html.BeginForm("Create", "Project", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label asp-for="ProjectName">Project Name:</label>
+            <input asp-for="ProjectName" class="form-control" />
+            <span asp-validation-for="ProjectName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CustomerCompanyName">Customer Company Name:</label>
+            <input asp-for="CustomerCompanyName" class="form-control" />
+            <span asp-validation-for="CustomerCompanyName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExecutorCompanyName">Executor Company Name:</label>
+            <input asp-for="ExecutorCompanyName" class="form-control" />
+            <span asp-validation-for="ExecutorCompanyName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProjectManagerName">Project Manager Name:</label>
+            <input asp-for="ProjectManagerName" class="form-control" />
+            <span asp-validation-for="ProjectManagerName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StartDate">Start Date:</label>
+            <input asp-for="StartDate" type="date" class="form-control" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EndDate">End Date:</label>
+            <input asp-for="EndDate" type="date" class="form-control" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Priority">Priority:</label>
+            <input asp-for="Priority" type="number" class="form-control" />
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+
+        <!-- Add fields for EmployeeNames and TaskIds if needed -->
+
+        <button type="submit" class="btn btn-primary">Create Project</button>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

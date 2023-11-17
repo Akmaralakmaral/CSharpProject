@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Employee\" />
     <Folder Include="Views\Task\" />
     <Folder Include="Views\Новая папка\" />
   </ItemGroup>

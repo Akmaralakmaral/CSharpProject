@@ -1,45 +1,35 @@
-﻿@model List<Domain.Models.Entities.Project>
+﻿@model List<Domain.Models.ViewModels.ProjectViewModel>
 
-@{
-    ViewData["Title"] = "Index";
-}
-@*<button type="button" class="btn btn-primary">Primary</button>*@
-<a asp-controller="Project" asp-action="create" button type="button" class="btn btn-primary">Create</a>
-@*<a class="btn btn-primary" href="#" role="button">Link</a>*@
-<h1>Список проектов</h1>
+<h2>Projects</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-         <th>Название проекта</th>
-        <th>Дата начала</th>
-        <th>Дата окончания</th>
-        <th>Приоритет</th>
-        <th>Customer Company ID</th>
-        <th>Executor Company ID</th>
-        <th>Project Manager ID</th>
-            
+                @Html.DisplayNameFor(model => model[0].ProjectName)
+            </th>
+            <!-- Добавьте другие заголовки столбцов по мере необходимости -->
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var project in Model)
+        @foreach (var item in Model)
         {
-               <tr>
-                <td>@project.ProjectId</td>      
-                <td>@project.ProjectName</td>
-                <td>@project.StartDate.ToShortDateString()</td>
-                <td>@project.EndDate.ToShortDateString()</td>
-                <td>@project.Priority</td>
-                <td>@project.CustomerCompanyId</td>
-                <td>@project.ExecutorCompanyId</td>
-                <td>@project.ProjectManagerId</td>
-             <td>
-                            <a asp-action="Edit" asp-route-id="@project.ProjectId">Edit</a> |
-                            <a asp-action="Delete" asp-route-id="@project.ProjectId">Delete</a>
-              </td>
-    </tr>}
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <!-- Добавьте другие столбцы по мере необходимости -->
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
-
-
