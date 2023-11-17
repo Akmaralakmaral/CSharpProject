@@ -1,12 +1,15 @@
 ﻿
 using Domain.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Logging;
 
 namespace DAL.Context
 {
     public class AppDbContext : DbContext
     {
+        private static readonly ILoggerFactory MyLoggerFactory
+        = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         public AppDbContext() { }
 
         public DbSet<Project> Projects { get; set; }
@@ -17,9 +20,12 @@ namespace DAL.Context
         public DbSet<ProjectEmployee> ProjectEmployees { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-40QVERS;Initial Catalog=AAProjectManagement;User ID=sa;Password=2004;TrustServerCertificate=true");
+            optionsBuilder.UseLoggerFactory(MyLoggerFactory) // Добавьте эту строку для включения логирования
+                         .UseSqlServer("Data Source=DESKTOP-40QVERS;Initial Catalog=AAProjectManagement;User ID=sa;Password=2004;TrustServerCertificate=true");
+
             base.OnConfiguring(optionsBuilder);
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

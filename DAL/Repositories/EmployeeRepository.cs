@@ -34,8 +34,18 @@ namespace DAL.Repositories
         // Метод для создания нового сотрудника
         public void CreateEmployee(Employee employee)
         {
-            _context.Employees.Add(employee);
-            _context.SaveChanges();
+           
+            try
+            {
+                _context.Employees.Add(employee);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                // Логгирование ошибки
+                Console.WriteLine($"Error creating employee: {ex.Message}");
+                throw; // Возможно, стоит выбросить исключение дальше
+            }
         }
 
         // Метод для обновления информации о существующем сотруднике

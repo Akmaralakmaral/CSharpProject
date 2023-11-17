@@ -4,6 +4,8 @@ using Domain.Models.DTO;
 using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+using DAL.Context;
 
 namespace BLL.Services
 {
@@ -11,11 +13,13 @@ namespace BLL.Services
     {
         private readonly IEmployeeRepository _repository;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
 
-        public EmployeeServices(IEmployeeRepository repository, IMapper mapper)
+        public EmployeeServices(IEmployeeRepository repository, IMapper mapper, AppDbContext context)
         {
             _repository = repository;
             _mapper = mapper;
+            _context = context;
         }
 
         // Получить информацию о сотруднике по его идентификатору
@@ -33,11 +37,24 @@ namespace BLL.Services
         }
 
         // Создать нового сотрудника
-        public void CreateEmployee(EmployeeDTO employeeDTO)
+         public void CreateEmployee(EmployeeDTO employeeDTO)
         {
-            Employee employee = _mapper.Map<Employee>(employeeDTO);
-            _repository.CreateEmployee(employee);
+            try
+            {
+                Employee employee = _mapper.Map<Employee>(employeeDTO);
+                _repository.CreateEmployee(employee);
+
+                // Логирование успешного создания
+                Console.WriteLine($"Employee created: {employee.EmployeeId}, {employee.FirstName}, {employee.LastName}");
+            }
+            catch (Exception ex)
+            {
+                // Логгирование ошибки
+                Console.WriteLine($"Error creating employee: {ex.Message}");
+                throw; // Возможно, стоит выбросить исключение дальше
+            }
         }
+    
 
         // Обновить информацию о существующем сотруднике
         public void UpdateEmployee(EmployeeDTO employeeDTO)

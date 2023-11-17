@@ -14,6 +14,25 @@ namespace CSharpProject
             services.AddAutoMapper(typeof(CompanyMappingProfile));
             services.AddAutoMapper(typeof(EmployeeMappingProfile));
             services.AddAutoMapper(typeof(TaskMappingProfile));
+
+            services.AddLogging(builder =>
+            {
+                // Здесь вы можете добавить различные провайдеры логирования, например, консоль
+                builder.AddConsole();
+            });
+        }
+
+
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            // ... другая конфигурация ...
+
+            // Добавление endpoint для health check
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/health");
+                // ... другие endpoint'ы ...
+            });
         }
 
     }

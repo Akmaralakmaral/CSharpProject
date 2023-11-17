@@ -50,21 +50,30 @@ namespace CSharpProject.Controllers
         [HttpPost]
         public IActionResult Create(EmployeeViewModel employeeViewModel)
         {
-            // Проверяем, прошла ли валидация модели
-            if (ModelState.IsValid)
+            try
             {
-                // Маппим ViewModel в DTO
-                var employeeDTO = _mapper.Map<EmployeeDTO>(employeeViewModel);
+                // Check if the model is valid
+                if (ModelState.IsValid)
+                {
+                    // Map ViewModel to DTO
+                    var employeeDTO = _mapper.Map<EmployeeDTO>(employeeViewModel);
 
-                // Вызываем сервис для создания сотрудника
-                _employeeServices.CreateEmployee(employeeDTO);
+                    // Call the service to create the employee
+                    _employeeServices.CreateEmployee(employeeDTO);
 
-                // Перенаправляем на список сотрудников
-                return RedirectToAction(nameof(Index));
+                    // Redirect to the index page after successful creation
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // If the model is not valid, return to the create view with errors
+                return View(employeeViewModel);
             }
-
-            // Если валидация не удалась, возвращаем представление с ошибками
-            return View(employeeViewModel);
+            catch (Exception ex)
+            {
+                // Log the exception
+                Console.WriteLine($"Error creating employee: {ex.Message}");
+                throw; // Rethrow the exception to propagate it further if needed
+            }
         }
 
         public IActionResult Edit(int id)
