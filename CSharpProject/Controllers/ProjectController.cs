@@ -33,7 +33,21 @@ namespace CSharpProject.Controllers
             // Маппим проекты в ViewModel
             var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
 
-            // Возвращаем представление с списком проектов
+            // Для каждого проекта в модели представления обновляем информацию о компаниях и сотрудниках
+            foreach (var projectViewModel in projectViewModels)
+            {
+                // Здесь необходимо получить информацию о компаниях и сотрудниках, например, используя сервисы
+                var customerCompany = _companyServices.GetCompanyById(projectViewModel.CustomerCompanyId);
+                var executorCompany = _companyServices.GetCompanyById(projectViewModel.ExecutorCompanyId);
+                var projectManager = _employeeServices.GetEmployeeById(projectViewModel.ProjectManagerId);
+
+                // Присваиваем полученные значения свойствам модели представления
+                projectViewModel.CustomerCompanyName = customerCompany?.CompanyName;
+                projectViewModel.ExecutorCompanyName = executorCompany?.CompanyName;
+                projectViewModel.ProjectManagerName = $"{projectManager?.FirstName} {projectManager?.LastName}";
+            }
+
+            // Возвращаем представление с таблицей проектов
             return View(projectViewModels);
         }
 
@@ -92,8 +106,27 @@ namespace CSharpProject.Controllers
             // Получаем проект по идентификатору из сервиса
             var project = _projectServices.GetProjectById(id);
 
-            // Маппим проект в ViewModel
-            var projectViewModel = _mapper.Map<ProjectViewModel>(project);
+            // Здесь заполняем CompanyList и EmployeeList данными из сервисов
+            var companies = _companyServices.GetAllCompanies();
+            var employees = _employeeServices.GetAllEmployees();
+
+            var projectViewModel = new ProjectViewModel
+            {
+                // Заполняем свойства модели данными из project
+                ProjectId = project.ProjectId,
+                ProjectName = project.ProjectName,
+                CustomerCompanyId = project.CustomerCompanyId,
+                ExecutorCompanyId = project.ExecutorCompanyId,
+                ProjectManagerId = project.ProjectManagerId,
+                StartDate = project.StartDate,
+                EndDate = project.EndDate,
+                Priority = project.Priority,
+                TaskIds = project.TaskIds,
+
+                // Заполняем остальные свойства модели
+                CompanyList = companies.Select(c => new SelectListItem { Value = c.CompanyId.ToString(), Text = c.CompanyName }).ToList(),
+                EmployeeList = employees.Select(e => new SelectListItem { Value = e.EmployeeId.ToString(), Text = $"{e.FirstName} {e.LastName}" }).ToList()
+            };
 
             // Возвращаем представление для редактирования проекта
             return View(projectViewModel);
@@ -129,6 +162,20 @@ namespace CSharpProject.Controllers
             // Маппим проект в ViewModel
             var projectViewModel = _mapper.Map<ProjectViewModel>(project);
 
+            // Для каждого проекта в модели представления обновляем информацию о компаниях и сотрудниках
+          
+            {
+                // Здесь необходимо получить информацию о компаниях и сотрудниках, например, используя сервисы
+                var customerCompany = _companyServices.GetCompanyById(projectViewModel.CustomerCompanyId);
+                var executorCompany = _companyServices.GetCompanyById(projectViewModel.ExecutorCompanyId);
+                var projectManager = _employeeServices.GetEmployeeById(projectViewModel.ProjectManagerId);
+
+                // Присваиваем полученные значения свойствам модели представления
+                projectViewModel.CustomerCompanyName = customerCompany?.CompanyName;
+                projectViewModel.ExecutorCompanyName = executorCompany?.CompanyName;
+                projectViewModel.ProjectManagerName = $"{projectManager?.FirstName} {projectManager?.LastName}";
+            }
+
             // Возвращаем представление для подтверждения удаления проекта
             return View(projectViewModel);
         }
@@ -144,123 +191,5 @@ namespace CSharpProject.Controllers
             return RedirectToAction(nameof(Index));
         }
     }
-
-
-    //public ProjectController(IProjectServices projectServices, IEmployeeServices employeeServices, IMapper mapper)
-    //{
-    //    _projectServices = projectServices;
-    //    _employeeServices = employeeServices;
-    //    _mapper = mapper;
-    //}
-
-    //public IActionResult Index()
-    //{
-    //    // Метод для просмотра всех проектов
-    //    var projects = _projectServices.GetAllProjects();
-    //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
-    //    return View(projectViewModels);
-    //}
-
-    //public IActionResult Create()
-    //{
-    //    // Метод для создания нового проекта
-    //    return View();
-    //}
-
-    //[HttpPost]
-    //public IActionResult Create(ProjectViewModel projectViewModel)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
-    //        _projectServices.AddProject(projectDTO);
-    //        return RedirectToAction("Index");
-    //    }
-
-    //    return View(projectViewModel);
-    //}
-
-    //public IActionResult Edit(int id)
-    //{
-    //    // Метод для редактирования проекта
-    //    var project = _projectServices.GetProjectById(id);
-    //    var projectViewModel = _mapper.Map<ProjectViewModel>(project);
-    //    return View(projectViewModel);
-    //}
-
-    //[HttpPost]
-    //public IActionResult Edit(ProjectViewModel projectViewModel)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
-    //        _projectServices.UpdateProject(projectDTO);
-    //        return RedirectToAction("Index");
-    //    }
-
-    //    return View(projectViewModel);
-    //}
-
-    //public IActionResult Delete(int id)
-    //{
-    //    // Метод для удаления проекта
-    //    var project = _projectServices.GetProjectById(id);
-    //    var projectViewModel = _mapper.Map<ProjectViewModel>(project);
-    //    return View(projectViewModel);
-    //}
-
-    //[HttpPost, ActionName("Delete")]
-    //public IActionResult DeleteConfirmed(int id)
-    //{
-    //    _projectServices.DeleteProject(id);
-    //    return RedirectToAction("Index");
-    //}
-
-    //public IActionResult AddEmployee(int projectId)
-    //{
-    //    // Метод для добавления сотрудника к проекту
-    //    var employees = _employeeServices.GetAllEmployees();
-    //    var employeeViewModels = _mapper.Map<List<EmployeeViewModel>>(employees);
-    //    ViewBag.ProjectId = projectId;
-    //    return View(employeeViewModels);
-    //}
-
-    //[HttpPost]
-    //public IActionResult AddEmployee(int projectId, List<int> employeeIds)
-    //{
-    //    if (employeeIds != null && employeeIds.Any())
-    //    {
-    //        foreach (var employeeId in employeeIds)
-    //        {
-    //            _projectServices.AddEmployeeToProject(employeeId, projectId);
-    //        }
-    //    }
-    //    return RedirectToAction("Index");
-    //}
-
-
-    //[HttpPost]
-    //public IActionResult RemoveEmployee(int projectId, List<int> employeeIds)
-    //{
-    //    if (employeeIds != null && employeeIds.Any())
-    //    {
-    //        foreach (var employeeId in employeeIds)
-    //        {
-    //            _projectServices.RemoveEmployeeFromProject(employeeId, projectId);
-    //        }
-    //    }
-    //    return RedirectToAction("Index");
-    //}
-
-    //public IActionResult SortByName()
-    //{
-    //    // Метод для сортировки проектов по названию
-    //    var projects = _projectServices.SortProjectsByName();
-    //    var projectViewModels = _mapper.Map<List<ProjectViewModel>>(projects);
-    //    return View("Index", projectViewModels);
-    //}
-
-
-
 }
 

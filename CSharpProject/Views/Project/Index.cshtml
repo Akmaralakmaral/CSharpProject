@@ -16,7 +16,6 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Priority</th>
-            <th>Employees</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -31,7 +30,6 @@
                     <td>@project.StartDate.ToShortDateString()</td>
                     <td>@project.EndDate.ToShortDateString()</td>
                     <td>@project.Priority</td>
-                    <td>@(project.EmployeeNames != null ? string.Join(", ", project.EmployeeNames) : "No data")</td>
                     <td>
                         <a asp-action="Details" asp-route-id="@project.ProjectId">Details</a> |
                         <a asp-action="Edit" asp-route-id="@project.ProjectId">Edit</a> |

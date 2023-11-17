@@ -7,6 +7,9 @@ namespace Domain.Models.ViewModels
     {
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
+        public int CustomerCompanyId { get; set; } // Добавлено
+        public int ExecutorCompanyId { get; set; } // Добавлено
+        public int ProjectManagerId { get; set; }  // Добавлено
         public string CustomerCompanyName { get; set; }
         public string ExecutorCompanyName { get; set; }
         public string ProjectManagerName { get; set; }
