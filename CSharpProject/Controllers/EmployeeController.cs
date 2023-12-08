@@ -33,7 +33,7 @@ namespace CSharpProject.Controllers
         {
             // Получаем информацию о сотруднике по идентификатору из сервиса
             var employee = _employeeServices.GetEmployeeById(id);
-
+           
             // Маппим сотрудника в ViewModel
             var employeeViewModel = _mapper.Map<EmployeeViewModel>(employee);
 
@@ -53,9 +53,9 @@ namespace CSharpProject.Controllers
             try
             {
                 // Check if the model is valid
-                if (ModelState.IsValid)
-                {
-                    // Map ViewModel to DTO
+                //if (ModelState.IsValid)
+                //{
+                //    // Map ViewModel to DTO
                     var employeeDTO = _mapper.Map<EmployeeDTO>(employeeViewModel);
 
                     // Call the service to create the employee
@@ -63,7 +63,7 @@ namespace CSharpProject.Controllers
 
                     // Redirect to the index page after successful creation
                     return RedirectToAction(nameof(Index));
-                }
+                //}
 
                 // If the model is not valid, return to the create view with errors
                 return View(employeeViewModel);
@@ -92,11 +92,8 @@ namespace CSharpProject.Controllers
         public IActionResult Edit(int id, EmployeeViewModel employeeViewModel)
         {
             // Проверяем, прошла ли валидация модели и соответствует ли идентификатор
-            if (id != employeeViewModel.EmployeeId || !ModelState.IsValid)
-            {
-                // Если условия не выполнились, возвращаем 404 Not Found
-                return NotFound();
-            }
+            //if (id != employeeViewModel.EmployeeId || !ModelState.IsValid)
+           
 
             // Маппим ViewModel в DTO
             var employeeDTO = _mapper.Map<EmployeeDTO>(employeeViewModel);

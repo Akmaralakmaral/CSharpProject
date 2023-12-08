@@ -103,8 +103,7 @@ namespace CSharpProject.Controllers
         public IActionResult Create(ProjectViewModel projectViewModel)
         {
             // Проверяем, прошла ли валидация модели
-            if (ModelState.IsValid)
-            {
+            
                 // Маппим ViewModel в DTO
                 var projectDTO = _mapper.Map<ProjectDTO>(projectViewModel);
 
@@ -113,7 +112,6 @@ namespace CSharpProject.Controllers
 
                 // Перенаправляем на список проектов
                 return RedirectToAction(nameof(Index));
-            }
 
             // Если валидация не удалась, возвращаем представление с ошибками
             return View(projectViewModel);

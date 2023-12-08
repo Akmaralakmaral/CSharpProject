@@ -16,6 +16,9 @@ namespace DAL.Repositories
         public void AddProject(Project project)
         {
             _context.Projects.Add(project);
+            project.CustomerCompany = _context.Companies.FirstOrDefault(x => x.CompanyId == 1);
+            project.ExecutorCompany = _context.Companies.FirstOrDefault(x => x.CompanyId == 2);
+            project.ProjectManager = _context.Employees.FirstOrDefault(x => x.EmployeeId == 1);
             _context.SaveChanges();
         }
 

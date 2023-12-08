@@ -22,7 +22,7 @@ namespace DAL.Repositories
         }
 
         // Просмотр компании по ID
-        public Company GetCompanyById(int companyId)
+        public Company ? GetCompanyById(int companyId)
         {
             return _context.Companies.FirstOrDefault(c => c.CompanyId == companyId);
         }

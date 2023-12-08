@@ -1,5 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Domain.Models.ViewModels.TaskViewModel>
+
+<h2>Task List</h2>
+
+<p>
+    <a asp-action="Create">Create New Task</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Author</th>
+            <th>Assignee</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Project</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+                <tr>
+                    <td>@task.TaskName</td>
+                    <td>@($"{task.Author.FirstName} {task.Author.LastName}")</td>
+                    <td>@($"{task.Assignee.FirstName} {task.Assignee.LastName}")</td>
+                    <td>@task.Status</td>
+                    <td>@task.Priority</td>
+                    <td>@task.Project.ProjectName</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@task.TaskId">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@task.TaskId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@task.TaskId">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

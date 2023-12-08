@@ -9,11 +9,13 @@ namespace CSharpProject.AutoMapper
         public ProjectMappingProfile()
         {
             CreateMap<ProjectViewModel, ProjectDTO>()
-            .ForMember(dest => dest.CustomerCompanyId, opt => opt.MapFrom(src => src.CustomerCompanyName != null ? src.CustomerCompanyName : "DefaultCompany"))
-            .ForMember(dest => dest.ExecutorCompanyId, opt => opt.MapFrom(src => src.ExecutorCompanyName != null ? src.ExecutorCompanyName : "DefaultCompany"))
-            .ForMember(dest => dest.ProjectManagerId, opt => opt.MapFrom(src => src.ProjectManagerName != null ? src.ProjectManagerName : "DefaultManager"))
-            .ForMember(dest => dest.EmployeeIds, opt => opt.MapFrom(src => src.EmployeeNames != null ? src.EmployeeNames : new List<string>()))
-            .ReverseMap();
+                 .ForMember(dest => dest.EmployeeIds, opt => opt.MapFrom(src => src.EmployeeList.Select(e => e.Value)))
+                 .ForMember(dest => dest.TaskIds, opt => opt.MapFrom(src => src.TaskIds));
+
+            CreateMap<ProjectDTO, ProjectViewModel>()
+                .ForMember(dest => dest.EmployeeList, opt => opt.Ignore()) // Ignore EmployeeList, as it won't be mapped back
+                .ForMember(dest => dest.TaskIds, opt => opt.MapFrom(src => src.TaskIds));
+
 
         }
     }

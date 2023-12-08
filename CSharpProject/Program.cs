@@ -2,6 +2,8 @@ using BLL.Configurations;
 using CSharpProject;
 using DAL.Configurations;
 using DAL.Context;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Build.Execution;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,10 @@ builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.ConfigureServices();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 
 
 var app = builder.Build();

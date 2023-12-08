@@ -1,4 +1,6 @@
-﻿namespace Domain.Models.ViewModels
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Domain.Models.ViewModels
 {
     public class TaskViewModel
     {
@@ -10,5 +12,7 @@
         public string Comment { get; set; }
         public int Priority { get; set; }
         public ProjectViewModel Project { get; set; }
+        public List<SelectListItem> EmployeeList { get; set; }
+        public List<SelectListItem> ProjectList { get; set; }
     }
 }

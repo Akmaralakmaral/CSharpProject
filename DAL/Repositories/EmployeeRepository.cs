@@ -2,6 +2,7 @@
 using DAL.Context;
 using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories
@@ -28,7 +29,9 @@ namespace DAL.Repositories
         // Метод для получения всех сотрудников
         public IEnumerable<Employee> GetAllEmployees()
         {
-            return _context.Employees.ToList();
+            var query = _context.Employees.ToList();
+           // IdentityRole;
+            return query;
         }
 
         // Метод для создания нового сотрудника
