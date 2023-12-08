@@ -6,18 +6,19 @@ using DAL.Repositories.Interfaces;
 using Domain.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using DAL.Context;
+using DAL.Repositories;
 
 namespace BLL.Services
 {
     public class EmployeeServices : IEmployeeServices
     {
-        private readonly IEmployeeRepository _repository;
+        private readonly IEmployeeRepository _employeeRepository;
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
-
-        public EmployeeServices(IEmployeeRepository repository, IMapper mapper, AppDbContext context)
+        private readonly IProjectRepository _projectRepository;
+        public EmployeeServices(IEmployeeRepository employeeRepository, IMapper mapper, AppDbContext context)
         {
-            _repository = repository;
+            _employeeRepository = employeeRepository;
             _mapper = mapper;
             _context = context;
         }
@@ -25,24 +26,26 @@ namespace BLL.Services
         // Получить информацию о сотруднике по его идентификатору
         public EmployeeDTO GetEmployeeById(int employeeId)
         {
-            Employee employee = _repository.GetEmployeeById(employeeId);
+            Employee employee = _employeeRepository.GetEmployeeById(employeeId);
             return _mapper.Map<EmployeeDTO>(employee);
         }
 
         // Получить список всех сотрудников
-        public IEnumerable<EmployeeDTO> GetAllEmployees()
+        public List<EmployeeDTO> GetAllEmployees()
         {
-            IEnumerable<Employee> employees = _repository.GetAllEmployees();
-            return _mapper.Map<IEnumerable<EmployeeDTO>>(employees);
+            var employees = _employeeRepository.GetAllEmployees();
+            return _mapper.Map<List<EmployeeDTO>>(employees);
         }
 
+        
+
         // Создать нового сотрудника
-         public void CreateEmployee(EmployeeDTO employeeDTO)
+        public void CreateEmployee(EmployeeDTO employeeDTO)
         {
             try
             {
                 Employee employee = _mapper.Map<Employee>(employeeDTO);
-                _repository.CreateEmployee(employee);
+                _employeeRepository.CreateEmployee(employee);
 
                 // Логирование успешного создания
                 Console.WriteLine($"Employee created: {employee.EmployeeId}, {employee.FirstName}, {employee.LastName}");
@@ -60,13 +63,13 @@ namespace BLL.Services
         public void UpdateEmployee(EmployeeDTO employeeDTO)
         {
             Employee employee = _mapper.Map<Employee>(employeeDTO);
-            _repository.UpdateEmployee(employee);
+            _employeeRepository.UpdateEmployee(employee);
         }
 
         // Удалить сотрудника по его идентификатору
         public void DeleteEmployee(int employeeId)
         {
-            _repository.DeleteEmployee(employeeId);
+            _employeeRepository.DeleteEmployee(employeeId);
         }
     }
 }

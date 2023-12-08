@@ -27,12 +27,12 @@ namespace DAL.Repositories
         }
 
         // Метод для получения всех сотрудников
-        public IEnumerable<Employee> GetAllEmployees()
+        public List<Employee> GetAllEmployees()
         {
-            var query = _context.Employees.ToList();
-           // IdentityRole;
-            return query;
+            return _context.Employees.ToList();
         }
+
+        
 
         // Метод для создания нового сотрудника
         public void CreateEmployee(Employee employee)

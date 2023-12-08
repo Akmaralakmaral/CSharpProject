@@ -9,7 +9,8 @@ namespace DAL.Repositories.Interfaces
         Employee GetEmployeeById(int employeeId);
 
         // Получить всех сотрудников
-        IEnumerable<Employee> GetAllEmployees();
+        
+        List<Employee> GetAllEmployees();
 
         // Создать нового сотрудника
         void CreateEmployee(Employee employee);

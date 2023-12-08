@@ -9,7 +9,7 @@ namespace BLL.Services.Interfaces
         EmployeeDTO GetEmployeeById(int employeeId);
 
         // Получить список всех сотрудников
-        IEnumerable<EmployeeDTO> GetAllEmployees();
+        List<EmployeeDTO> GetAllEmployees();
 
         // Создать нового сотрудника
         void CreateEmployee(EmployeeDTO employeeDTO);
