@@ -11,5 +11,7 @@ namespace Domain.Models.DTO
         public List<int> ProjectIds { get; set; }
         public List<int> AuthoredTaskIds { get; set; }
         public List<int> AssignedTaskIds { get; set; }
+
+        public int CompanyId { get; set; }
     }
 }

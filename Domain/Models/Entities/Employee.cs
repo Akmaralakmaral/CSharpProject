@@ -19,6 +19,7 @@ namespace Domain.Models.Entities
         public List<Task> AuthoredTasks { get; set; }
         public List<Task> AssignedTasks { get; set; }
 
+        public int CompanyId { get; set; }
     }
 
 }
