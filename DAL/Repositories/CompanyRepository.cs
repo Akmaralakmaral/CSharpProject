@@ -110,7 +110,7 @@ namespace DAL.Repositories
         }
 
         // Получение всех компаний
-        public IEnumerable<Company> GetAllCompanies()
+        public List<Company> GetAllCompanies()
         {
             return _context.Companies.ToList();
         }

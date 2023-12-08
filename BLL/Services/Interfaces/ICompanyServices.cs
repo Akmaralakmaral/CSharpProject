@@ -11,6 +11,6 @@ namespace BLL.Services.Interfaces
         void DeleteCompany(int companyId);
         List<CompanyDTO> GetCompaniesByName(string companyName);
         List<CompanyDTO> GetCompaniesSortedByName();
-        IEnumerable<CompanyDTO> GetAllCompanies();
+        List<CompanyDTO> GetAllCompanies();
     }
 }

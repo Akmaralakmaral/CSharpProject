@@ -36,7 +36,7 @@ namespace DAL.Repositories.Interfaces
         List<Company> GetCompaniesSortedByName();
 
         // Получение всех компаний
-        IEnumerable<Company> GetAllCompanies();
+        List<Company> GetAllCompanies();
 
         
     }

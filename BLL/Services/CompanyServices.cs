@@ -54,11 +54,13 @@ namespace BLL.Services
             return _mapper.Map<List<CompanyDTO>>(companies);
         }
 
-        public IEnumerable<CompanyDTO> GetAllCompanies()
+        public List<CompanyDTO> GetAllCompanies()
         {
-            IEnumerable<Company> companies = _companyRepository.GetAllCompanies();
-            return _mapper.Map<IEnumerable<CompanyDTO>>(companies);
+            var companies = _companyRepository.GetAllCompanies();
+            return _mapper.Map<List<CompanyDTO>>(companies);
         }
+
+
     }
 }
    
