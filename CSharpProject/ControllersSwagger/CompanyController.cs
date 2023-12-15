@@ -19,7 +19,7 @@ namespace CSharpProject.ControllersSwagger
         }
 
         [HttpGet]
-        public List<CompanyDTO> GetAllEmployees()
+        public List<CompanyDTO> GetAllCompanies()
         {
             var companies = _companyServices.GetAllCompanies();
             return companies;

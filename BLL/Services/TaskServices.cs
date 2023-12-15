@@ -12,11 +12,13 @@ namespace BLL.Services
         // Внедрение зависимости репозитория, например, ITaskRepository
         private readonly ITaskRepository _taskRepository;
         private readonly IMapper _mapper;
+        private readonly ITelegramBot _telegramBot;
 
-        public TaskServices(ITaskRepository taskRepository, IMapper mapper)
+        public TaskServices(ITaskRepository taskRepository, IMapper mapper, ITelegramBot telegramBot)
         {
             _taskRepository = taskRepository;
             _mapper = mapper;
+            _telegramBot = telegramBot;
         }
         public TaskDTO GetTaskById(int taskId)
         {
@@ -42,20 +44,32 @@ namespace BLL.Services
             return _mapper.Map<IEnumerable<TaskDTO>>(tasks);
         }
 
-        public IEnumerable<TaskDTO> GetAllTasks()
+        public List<TaskDTO> GetAllTasks()
         {
             // Получить все задачи
             var tasks = _taskRepository.GetAllTasks();
             // Преобразовать список задач в список TaskDTO с использованием AutoMapper
-            return _mapper.Map<IEnumerable<TaskDTO>>(tasks);
+            return _mapper.Map<List<TaskDTO>>(tasks);
         }
+
+        //public void CreateTask(TaskDTO taskDTO)
+        //{
+        //    // Преобразовать TaskDTO в задачу Task с использованием AutoMapper
+        //    var task = _mapper.Map<Domain.Models.Entities.Task>(taskDTO);
+        //    // Сохранить новую задачу через репозиторий
+        //    _taskRepository.CreateTask(task);
+        //}
+
 
         public void CreateTask(TaskDTO taskDTO)
         {
             // Преобразовать TaskDTO в задачу Task с использованием AutoMapper
             var task = _mapper.Map<Domain.Models.Entities.Task>(taskDTO);
+
             // Сохранить новую задачу через репозиторий
             _taskRepository.CreateTask(task);
+
+            
         }
 
         public void UpdateTask(TaskDTO taskDTO)

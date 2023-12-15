@@ -24,7 +24,13 @@ namespace BLL.Configurations
             services.AddTransient<ITaskServices, TaskServices>();
             services.AddAutoMapper(typeof(TaskProfile));
 
+
+
             services.AddTransient<IProjectEmployeeServices, ProjectEmployeeServices>();
+
+            string apiKey = "6598291497:AAEim0JhXfR9_W6zxaEi5P_lr2RnYpKTM80";
+            services.AddTransient<ITelegramBot, TelegramBot>(provider => new TelegramBot(apiKey));
+
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VzQn8du7wY7XpIn6nSDoQlYFJ6YRAm8KlS1ZDWVlCwXaX4Um6CyuaqRyXLM1rbP0cnE5pUC0nKP0dhvG/NRtdQ==",
+  "dgSpecHash": "McAaqN60NZyqgib2MsrmeAXzCDsntHdakf9iTOnsApqzTJf6VyLdaJ+uNVasx8PlGm+lTp6T6DceKLDvrmyj4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Акмарал\\Desktop\\3 КУРС ОСЕННИЙ СЕМЕСТР\\ДП_С#\\C#\\C# ProjectOfProject\\CSharpProject\\CSharpProject\\CSharpProject.csproj",
   "expectedPackageFiles": [
@@ -295,7 +295,8 @@
     "C:\\Users\\Акмарал\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Акмарал\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Акмарал\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Акмарал\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Акмарал\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Акмарал\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
   ],
   "logs": []
 }

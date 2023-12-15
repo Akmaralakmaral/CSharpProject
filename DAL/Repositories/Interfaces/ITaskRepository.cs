@@ -13,7 +13,7 @@ namespace DAL.Repositories.Interfaces
         IEnumerable<Domain.Models.Entities.Task> GetTasksByAssignee(int assigneeId);
 
         // Метод для получения всех задач
-        IEnumerable<Domain.Models.Entities.Task> GetAllTasks();
+        List<Domain.Models.Entities.Task> GetAllTasks();
 
         // Метод для создания новой задачи
         void CreateTask(Domain.Models.Entities.Task task);

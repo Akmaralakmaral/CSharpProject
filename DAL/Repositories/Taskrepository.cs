@@ -42,14 +42,20 @@ namespace DAL.Repositories
         }
 
         // Метод для получения всех задач
-        public IEnumerable<Domain.Models.Entities.Task> GetAllTasks()
+        public List<Domain.Models.Entities.Task> GetAllTasks()
         {
             return _context.Tasks.ToList();
         }
 
         // Метод для создания новой задачи
+        
+
         public void CreateTask(Domain.Models.Entities.Task task)
         {
+            task.Author = _context.Employees.FirstOrDefault(x => x.EmployeeId == task.AuthorId);
+            task.Assignee = _context.Employees.FirstOrDefault(x => x.EmployeeId == task.AssigneeId);
+            task.Project = _context.Projects.FirstOrDefault(x => x.ProjectId == task.ProjectId);
+
             _context.Tasks.Add(task);
             _context.SaveChanges();
         }
@@ -57,7 +63,45 @@ namespace DAL.Repositories
         // Метод для обновления существующей задачи
         public void UpdateTask(Domain.Models.Entities.Task task)
         {
-            _context.Entry(task).State = EntityState.Modified;
+            var taskEntity = _context.Tasks.FirstOrDefault(x => x.TaskId == task.TaskId);
+            if (task.Author != null)
+            {
+                taskEntity.Author = task.Author;
+            }
+            if (task.TaskName != null)
+            {
+                taskEntity.TaskName = task.TaskName;
+            }
+
+            if(task.Assignee != null)
+            {
+                taskEntity.Assignee = task.Assignee;
+            }
+
+            if (task.Project != null)
+            {
+                taskEntity.Project = task.Project;
+            }
+            if (task.Comment!= null)
+            {
+                taskEntity.Comment = task.Comment;
+            }
+
+            if(task.Priority != null)
+            {
+                taskEntity.Priority = task.Priority;
+            }
+
+            if(task.Status != null)
+            {
+                taskEntity.Status = task.Status;
+            }
+
+            taskEntity.Author = _context.Employees.FirstOrDefault(x => x.EmployeeId == task.AuthorId);
+            taskEntity.Assignee = _context.Employees.FirstOrDefault(x => x.EmployeeId == task.AssigneeId);
+            taskEntity.Project = _context.Projects.FirstOrDefault(x => x.ProjectId == task.ProjectId);
+            _context.Tasks.Update(taskEntity);
+            // _context.Entry(task).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

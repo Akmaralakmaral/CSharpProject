@@ -1,9 +1,12 @@
 using BLL.Configurations;
+using BLL.Services.Interfaces;
+using BLL.Services;
 using CSharpProject;
 using DAL.Configurations;
 using DAL.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Build.Execution;
+using Telegram.Bot.Types;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,7 @@ builder.Services.ConfigureServices();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
 
 builder.Services.AddSwaggerGen();
 

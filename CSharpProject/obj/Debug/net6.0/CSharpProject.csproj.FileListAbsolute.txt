@@ -338,6 +338,7 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
@@ -360,6 +361,9 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\NuGet.ProjectModel.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\NuGet.Protocol.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\NuGet.Versioning.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.Composition.Convention.dll
@@ -377,6 +381,7 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Telegram.Bot.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\af\Humanizer.resources.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\ar\Humanizer.resources.dll
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\az\Humanizer.resources.dll
@@ -560,7 +565,3 @@ C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.pdb
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\CSharpProject.genruntimeconfig.cache
 C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\obj\Debug\net6.0\ref\CSharpProject.dll
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Акмарал\Desktop\3 КУРС ОСЕННИЙ СЕМЕСТР\ДП_С#\C#\C# ProjectOfProject\CSharpProject\CSharpProject\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

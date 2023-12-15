@@ -15,7 +15,7 @@ namespace BLL.Services.Interfaces
         IEnumerable<TaskDTO> GetTasksByAssignee(int assigneeId);
 
         // Получить все задачи
-        IEnumerable<TaskDTO> GetAllTasks();
+        List<TaskDTO> GetAllTasks();
 
         // Создать новую задачу
         void CreateTask(TaskDTO taskDTO);
