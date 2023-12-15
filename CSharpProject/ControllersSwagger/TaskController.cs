@@ -34,9 +34,7 @@ namespace CSharpProject.ControllersSwagger
 
             _taskServices.CreateTask(taskDTO);
 
-            // Отправить уведомление в Telegram о создании новой задачи
-            string telegramMessage = $"Новая задача: {taskDTO.TaskName}";
-            _telegramBot.SendTaskNotificationAsync("1650190510", telegramMessage).Wait();
+           
 
             return Ok("Task created successfully");
         }

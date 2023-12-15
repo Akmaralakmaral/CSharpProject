@@ -69,7 +69,9 @@ namespace BLL.Services
             // Сохранить новую задачу через репозиторий
             _taskRepository.CreateTask(task);
 
-            
+            // Отправить уведомление в Telegram о создании новой задачи
+            string telegramMessage = $"Новая задача: {taskDTO.TaskName}";
+            _telegramBot.SendTaskNotificationAsync("1650190510", telegramMessage).Wait();
         }
 
         public void UpdateTask(TaskDTO taskDTO)
@@ -78,6 +80,18 @@ namespace BLL.Services
             var task = _mapper.Map<Domain.Models.Entities.Task>(taskDTO);
             // Обновить существующую задачу через репозиторий
             _taskRepository.UpdateTask(task);
+
+
+            //string telegramMessage = $"Обновлена задача: {taskDTO.TaskName}, Статус: {taskDTO.Status}";
+            //_telegramBot.SendTaskNotificationAsync("1650190510", telegramMessage).Wait();
+
+            string telegramMessage = $"Обновлена задача:\n" +
+                             $"Название: {taskDTO.TaskName}\n" +
+                             $"Статус: {taskDTO.Status}\n";
+
+            _telegramBot.SendTaskNotificationAsync("1650190510", telegramMessage).Wait();
+
+
         }
 
         public void DeleteTask(int taskId)
